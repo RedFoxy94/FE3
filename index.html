@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Cascading Style Sheets (CSS). Селекторы.</title>
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+	<section class="demo demo0">
+		<nav id="mainmenu">
+			<ul>
+				<li><a href="">Item 1</a></li>
+				<li><a href="">Item 2<span class="icon-arrow-down">&#9660;</span></a>
+					<ul>
+						<li><a href="">SubItem 1</a></li>
+						<li><a href="">SubItem 2</a></li>
+						<li><a href="">SubItem 3</a></li>
+						<li><a href="">SubItem 4</a></li>
+						<li><a href="">SubItem 5</a></li>
+						<li><a href="">SubItem 6</a></li>
+						<li><a href="">SubItem 7</a></li>
+						<li><a href="">SubItem 8</a></li>
+						<li><a href="">SubItem 9</a></li>
+						<li><a href="">SubItem 10</a></li>
+					</ul>
+				</li>
+				<li><a href="">Item 3</a></li>
+				<li><a href="">Item 4</a></li>
+				<li><a href="">Item 5</a></li>
+				<li><a href="">Item 6</a></li>
+				<li><a href="">Item 7</a></li>
+				<li><a href="">Item 8</a></li>
+				<li><a href="">Item 9</a></li>
+				<li><a href="">Item 10</a></li>
+			</ul>
+		</nav>
+	</section>
+
+	<section class="demo demo11">
+		<div class="description">Браузер ранжирует селекторы по определенным правилам. Стиль применяется к тому селектору, весовой показатель которого выше.</div>
+		<ul class="hierarchy">
+			<li>* { } - универсальный селектор: 0 баллов</li>
+			<li>em, ::first-letter { } - селектор тега, псевдоэлемент: 1 балл</li>
+			<li>[title="Hello world!"], .one, :hover { } - селектор атрибута, класс, псевдокласс: 10 баллов</li>
+			<li>#header - идентификатор: 100 баллов</li>
+			<li>#header a:hover { } - идентификатор + тег + псевдокласс = 111 баллов</li>
+			<li>стили, прописанные в атрибуте или теге style: 1000 баллов</li>
+		</ul>
+	</section>
+
+	<section class="demo demo13">
+		<div class="description">Правило применяется ко всем перечисленным селекторам.</div>
+		<div class="column">
+			<textarea>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Hic, asperiores!</textarea>
+			<select>
+				<option value="1">Lorem ipsum dolor</option>
+				<option value="2">Lorem ipsum dolor sit amet</option>
+				<option value="3">Lorem ipsum</option>
+			</select>
+			<a href="#">Lorem ipsum dolor sit amet.</a>
+		</div>
+		<div class="column">
+<pre>
+	textarea, select, a {
+		display: inline-block;
+		vertical-align: bottom;
+	}
+</pre>
+		</div>
+	</section>
+
+		<section class="demo demo14">
+			<div class="description">Правило применяется к последнему селектору в указанной последовательности. Запись в примере означает, что элемент label является дочерним по отношению к элементу form, который в свою очередь вложен в элемент section.</div>
+			<div class="column">
+				<section>
+					<form action="">
+						<button>Submit</button>
+					</form>
+				</section>
+			</div>
+			<div class="column">
+<pre>
+	section form button {
+		background: #80B1FA;
+		border: none;
+		padding: 10px 40px;
+	}
+</pre>
+			</div>
+		</section>
+
+	<section class="demo demo8">
+		<div class="description">Элементы веб-страницы, которые следуют непосредственно друг за другом в коде документа.</div>
+		<div class="column">
+			<div class="rect first"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+			<div class="rect"></div>
+		</div>
+		<div class="column">
+			<pre>
+	.rect:first-child + .rect {
+		background: red;
+	}
+
+	.rect {
+		background: blue;
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo9">
+		<div class="description">Стилевые правила применяются ко всем близлежащим элементам.</div>
+		<div class="column">
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+			<div class="circle"></div>
+		</div>
+		<div class="column">
+			<pre>
+	.circle:first-child ~ .circle {
+		background: red;
+	}
+
+	.circle {
+		background: blue;
+		width: 20px;
+		height: 20px;
+		display: inline-block;
+		border-radius: 50%;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo10">
+		<div class="description">Элементы, которые непосредственно располагаются внутри родительского элемента.</div>
+		<div class="column">
+			<ul class="points">
+				<li>&bull;
+					<ul>
+						<li>&bull;
+							<ul>
+								<li>&bull;</li>
+								<li>&bull;</li>
+								<li>&bull;</li>
+								<li>&bull;</li>
+								<li>&bull;</li>
+							</ul>
+						</li>
+						<li>&bull;</li>
+						<li>&bull;</li>
+						<li>&bull;</li>
+						<li>&bull;</li>
+					</ul>
+				</li>
+				<li>&bull;</li>
+				<li>&bull;</li>
+				<li>&bull;</li>
+				<li>&bull;</li>
+			</ul>
+		</div>
+		<div class="column">
+			<pre>
+	ul.points li {
+		color: black;
+		display: block;
+		padding: 0;
+		font-size: 40px;
+		line-height: 0.4;
+	}
+
+	ul.points > li {
+		color: red;
+	}
+
+	ul.points > li > ul > li {
+		color: blue;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo1">
+		<div class="description">В качестве селектора может выступать любой тег HTML, для которого определяются правила форматирования, такие как: цвет, фон, размер и т. д.</div>
+		<div class="column">
+			<h1>&lt;h1&gt; header</h1>
+			<p>&lt;p&gt; paragraph</p>
+			<span>&lt;span&gt; text</span>
+		</div>
+		<div  class="column">
+			<pre>
+	h1, p, span {
+		color: #23798F;
+		margin: 0;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo2">
+		<div class="description">Разница между идентификатором и классом заключается в том, что идентификатор может применяться для определения одного элемента, а класс может использоваться для определения нескольких элементов.</div>
+		<div class="column">
+			<div id="content">#content</div>
+			<div class="article">.article</div>
+			<div class="list book">.list.book</div>
+		</div>
+		<div class="column">
+			<pre>
+	#content, .article, .list.book {
+		font-weight: bold;
+		font-style: italic;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo3">
+		<div class="description">Позволяют установить стиль по присутствию определённого атрибута тега или его значения.</div>
+		<div class="column">
+			<div contenteditable>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias deserunt ab aliquid id soluta numquam, optio saepe earum vitae fugiat dolor, consequuntur sunt iste autem incidunt perferendis. Minus, atque pariatur?</div>
+			<input type="text" placeholder="Enter your name">
+			<input type="password" placeholder="Enter your password">
+		</div>
+		<div class="column">
+			<pre>
+	[contenteditable], [type=text], [type=password] {
+		padding: 5px 10px;
+		border: 1px solid #5E7DC3;
+		border-radius: 5px;
+		margin-bottom: 10px;
+		width: 100%;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo4">
+		<div class="description">Позволяют установить стиль для различных состояний ссылок: непосещенные, посещенные, нажатые.</div>
+		<div class="column">
+			<a href="#1">click me please</a>
+			<a href="#2">click me please</a>
+			<a href="#3">click me please</a>
+			<a href="#4">click me please</a>
+			<a href="#5">click me please</a>
+			<a href="#6">click me please</a>
+			<a href="#7">click me please</a>
+			<a href="#8">click me please</a>
+			<a href="#9">click me please</a>
+			<a href="#10">click me please</a>
+		</div>
+		<div class="column">
+			<pre>
+	a:link, a:visited, a:active {
+		white-space: nowrap;
+		margin: 0 10px;
+	}
+
+	a:link {
+		color: #000;
+	}
+
+	a:visited {
+		color: #ccc;
+	}
+
+	a:active {
+		color: #B32E2E;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo5">
+		<div class="description">Стиль, применяемый в ответ на действия пользователя над элементом.
+		</div>
+		<div class="column">
+			<input type="text" id="field1" value="Input focus" autofocus>
+			<input type="text" id="field1" value="Input hover">
+
+			<label>
+				<input type="checkbox" checked id="field2">
+				Input checked
+			</label>
+		</div>
+		<div class="column">
+			<pre>
+	input:hover, input:focus, input[type=checkbox]:checked {
+		-webkit-box-shadow: 0px 0px 5px 0px rgba(94,124,195,1);
+		-moz-box-shadow: 0px 0px 5px 0px rgba(94,124,195,1);
+		box-shadow: 0px 0px 5px 0px rgba(94,124,195,1);
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo6">
+		<div class="description">Устанавливают стиль для конкретных элементов в наборе.</div>
+		<div class="column">
+			<ul>
+				<li>Item 001</li>
+				<li>Item 002</li>
+				<li>Item 003</li>
+				<li>Item 004</li>
+				<li>Item 005</li>
+				<li>Item 006</li>
+				<li>Item 007</li>
+				<li>Item 008</li>
+				<li>Item 009</li>
+				<li>Item 010</li>
+			</ul>
+		</div>
+		<div class="column">
+			<pre>
+	li:nth-child(5),
+	li:first-child,
+	li:last-child {
+		padding-left: 20px;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo7">
+		<div class="description">Виртуальные элементы веб-страницы, занимающие физическое пространство и влияющие на другие элементы веб-страницы. Особенности: не реагируют на мышь и не доступны из javascript-кода.</div>
+		<div class="column">
+			<div class="cite">О, сколько нам открытий чудных готовит...</div>
+		</div>
+		<div class="column">
+			<pre>
+	div.cite::before, div.cite::after {
+		content: '"';
+		color: #A92A2A;
+		font-size: 36px;
+	}
+			</pre>
+		</div>
+	</section>
+
+	<section class="demo demo12">
+		<ol class="list-resourses">
+			<li><a href="http://htmlbook.ru/" target="_blank">Справочник по HTML и CSS</a></li>
+			<li><a href="http://www.colorzilla.com/gradient-editor/" target="_blank">CSS Gradient Online</a></li>
+			<li><a href="http://www.cssmatic.com/box-shadow" target="_blank">CSS Box Shadow Online</a></li>
+			<li><a href="http://css3gen.com/text-shadow/" target="_blank">CSS Text Shadow Online</a></li>
+			<li><a href="http://www.css3maker.com/css3-transform.html" target="_blank">CSS Transform Online</a></li>
+		</ol>
+	</section>
+
+</body>
+</html>
