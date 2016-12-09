@@ -22,17 +22,29 @@ p = l - 1;
 console.log(p); //5) p = 9 
 
 var a = 5;
+if (typeof a == 'number'){
 alert(typeof a); 
+}
 var a = 'test';
+if (typeof a == 'test'){
 alert(typeof a);
+}
 var a = undefined;
-alert(typeof a); 
+if (typeof a == 'undefined'){
+alert(typeof a);
+} 
 var a = null;
+if (typeof a == 'null'){
 alert(typeof a); 
+}
 var a = true;
+if (typeof a == 'true'){
 alert(typeof a); 
+}
 var a = { name: "Вася" };
-alert(typeof a);  //6) объявление переменных
+if (typeof a == 'Вася'){
+alert(typeof a); 
+} //6) объявление переменных
 
 
 var x = 20 , y = 4 , z = 2;
@@ -57,13 +69,21 @@ if (q > 0) {
 }
 
 var x = 23 , y = 15 , z = 7;
-if (x < y && x < z) {
+if (x < y) {
+if (x < z){
   alert( 'x min значение' );
-}else if (y < x && y < z) {
+}}else if (y < x ) {
+else if (y < z){
 	alert( 'y min значение' );
-}else if (z < x && z < y) {
+}}else if (z < x) {
+else if (z < y){
 alert( 'z min значение' ); //8) min число
-}
+}}
 
-
-
+//(function(){ 
+//var username = prompt('Enter your name','');
+//while(!username){
+	//username = prompt('Enter your name','');
+//}
+//alert(username);
+//});
