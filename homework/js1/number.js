@@ -25,8 +25,8 @@ var a = 5;
 if (typeof a == 'number'){
 alert(typeof a); 
 }
-var a = 'test';
-if (typeof a == 'test'){
+var a = 'string';
+if (typeof a == 'string'){
 alert(typeof a);
 }
 var a = undefined;
@@ -41,8 +41,8 @@ var a = true;
 if (typeof a == 'true'){
 alert(typeof a); 
 }
-var a = { name: "Вася" };
-if (typeof a == 'Вася'){
+var a = { name: "object" };
+if (typeof a == 'object'){
 alert(typeof a); 
 } //6) объявление переменных
 
@@ -70,20 +70,12 @@ if (q > 0) {
 
 var x = 23 , y = 15 , z = 7;
 if (x < y) {
-if (x < z){
-  alert( 'x min значение' );
-}}else if (y < x ) {
-else if (y < z){
+if (x < z)
+alert( 'x min значение' );
+} if (y < x) {
+  if (y < z)
 	alert( 'y min значение' );
-}}else if (z < x) {
-else if (z < y){
-alert( 'z min значение' ); //8) min число
-}}
-
-//(function(){ 
-//var username = prompt('Enter your name','');
-//while(!username){
-	//username = prompt('Enter your name','');
-//}
-//alert(username);
-//});
+} if (z < x) {
+  if (z < y) 
+	alert( 'z min значение' ); //8) min число	
+}
